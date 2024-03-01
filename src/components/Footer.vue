@@ -1,4 +1,14 @@
-<script setup></script>
+<script>
+import creativeC from '@src/img/creativeC.svg'; // Assuming '@' is configured as alias for 'src' directory in your project
+
+export default {
+  data() {
+    return {
+      creativeC: creativeC
+    };
+  }
+};
+</script>
 
 <template>
   <footer class="bg-gray-800 shadow dark:bg-gray-900 mt-10">
@@ -41,14 +51,9 @@
         class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
       />
       <span
-        class="block text-sm text-gray-300 sm:text-center dark:text-gray-400"
-        >© 2023
-        <a
-          href="app"
-          class="transition duration-500 ease-in-out hover:underline scroll-behavior-smooth"
-          >Donostipub™</a
-        >. All Rights Reserved.</span
-      >
+        class="flex flex-row items-center text-sm text-gray-300 sm:text-center dark:text-gray-400"
+        ><img :src="creativeC" width="35px" height="35px" class="text-white"/><font-awesome-icon icon="person" class="text-white px-2 py-1 ml-1 rounded-full border-4 text-lg font-bold" />
+      </span>
     </div>
   </footer>
 </template>
