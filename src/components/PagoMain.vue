@@ -129,7 +129,7 @@ watchEffect(() => {
   </div>
 
   <!--ESTA PARTE DEL CODIGO HASTA DONDE ESTA MARCADO NO SE IMPLEMENTA-->
-  <main class="text-white w-full h-full flex justify-center">
+  <main class="text-white md:w-full md:h-full flex justify-center">
     <form class="flex flex-col w-[745px]">
       <h2 class="text-xl font-bold my-3">Fakturazio-helbidea</h2>
       <div class="flex flex-row justify-between w-full">

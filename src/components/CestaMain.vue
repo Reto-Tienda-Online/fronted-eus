@@ -122,17 +122,17 @@ watch(
 </script>
 
 <template>
-  <main class="flex xl:flex-row justify-center sm:flex-col w-full mt-10">
+  <main class="flex flex-col justify-center md:flex-row md:w-full mt-10">
     <!--COMPRAS-->
-    <div v-if="juegosEnCarrito.length > 0" class="flex flex-col gap-5">
+    <div v-if="juegosEnCarrito.length > 0" class="w-auto flex flex-col gap-5">
       <div
         v-for="(juego, index) in juegosEnCarrito"
         :key="juego.id"
-        class="text-white w-[745px] mx-4"
+        class="text-white w-[350px] md:w-[745px] mx-4"
       >
         <!--Contenido del juego a comprar a repetir segun la cantidad de juegos en el carrito-->
         <div
-          class="flex flex-row justify-around bg-[#1f1f1f] w-full px-5 py-5 rounded-xl"
+          class="flex flex-col md:flex-row justify-around bg-[#1f1f1f] w-full px-5 py-5 rounded-xl"
         >
           <div class="cover" @click="seeGameDetails(juego['producto'])">
             <picture
@@ -140,10 +140,10 @@ watch(
                 :alt="juego['producto'].producto"
                 :src="getImageURL(juego['producto'].id)"
                 loading="lazy"
-                class="rounded-xl max-w-96 hover:cursor-pointer"
+                class="rounded-xl w-45 my-5 md:my-2 md:max-w-96 hover:cursor-pointer"
             /></picture>
           </div>
-          <div class="flex flex-col text-md max-w-32">
+          <div class="flex flex-row md:flex-col text-md max-w-32">
             <div class="name">
               <!--Aqui ira el icono de-->
               <div class="platform platform-steam">
@@ -210,8 +210,8 @@ watch(
       </h1>
     </div>
     <!--RESUMEN DE COMPRAS-->
-    <div v-if="juegosEnCarrito.length > 0" class="flex flex-col">
-      <div class="text-white w-[395px] mx-4">
+    <div v-if="juegosEnCarrito.length > 0" class="mt-5 md:mt-0 flex flex-col">
+      <div class="text-white md:w-full mx-4">
         <div
           class="flex flex-col justify-center w-full bg-[#1f1f1f] px-5 py-5 rounded-xl"
         >
