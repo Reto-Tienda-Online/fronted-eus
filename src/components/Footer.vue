@@ -1,4 +1,18 @@
-<script setup></script>
+<script>
+import creativeC from "@src/img/creativeC.svg";
+import dinahosting from "@src/img/Dinahosting.png";
+import eus from "@src/img/Puntueus-logoa.png";
+
+export default {
+  data() {
+    return {
+      creativeC: creativeC,
+      dinahosting: dinahosting,
+      eus: eus,
+    };
+  },
+};
+</script>
 
 <template>
   <footer class="bg-gray-800 shadow dark:bg-gray-900 mt-10">
@@ -40,15 +54,40 @@
       <hr
         class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
       />
-      <span
-        class="block text-sm text-gray-300 sm:text-center dark:text-gray-400"
-        >© 2023
-        <a
-          href="app"
-          class="transition duration-500 ease-in-out hover:underline scroll-behavior-smooth"
-          >Donostipub™</a
-        >. All Rights Reserved.</span
-      >
+
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <span
+          class="flex flex-row items-center text-sm text-gray-300 sm:text-center dark:text-gray-400"
+          ><img
+            :src="creativeC"
+            alt="Creative Commons"
+            width="35px"
+            height="35px"
+            class="text-white"
+            loading="lazy"
+          /><font-awesome-icon
+            icon="person"
+            aria-label="Creative Commons User"
+            class="text-white px-2 py-1 ml-1 rounded-full border-4 text-lg font-bold"
+          />
+        </span>
+        <div class="flex flex-col justify-center items-center">
+          <img
+            :src="eus"
+            alt="Puntueus-logoa"
+            loading="lazy"
+            width="100px"
+            height="100px"
+          />
+          <img
+            :src="dinahosting"
+            alt="Dinahiosting logoa"
+            loading="lazy"
+            width="200px"
+            height="200px"
+          />
+        </div>
+      </div>
     </div>
   </footer>
 </template>
