@@ -372,7 +372,7 @@ onMounted(() => {
               @click="addItemToCart(juegoPasado)"
             >
               <font-awesome-icon icon="shopping-cart" />
-              Add to cart
+              Produktua erantsi
             </button>
             <button
               aria-label="Favorito"

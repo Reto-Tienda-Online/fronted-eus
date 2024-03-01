@@ -17,6 +17,9 @@ export default {
       fontFamily: {
         barlow: ["Barlow", "Arial", "sans-serif"],
       },
+      fontSize: {
+        xxs: ["2px"]
+      }
     },
   },
   plugins: [require("flowbite/plugin")],

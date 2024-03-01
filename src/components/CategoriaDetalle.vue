@@ -4,7 +4,9 @@ import axios from "axios";
 import { useStore } from "vuex";
 import Navbar from "./Navbar.vue";
 import Gallery from "./Gallery.vue";
+import Footer from "./Footer.vue";
 import { API_URL } from "../config";
+
 
 const store = useStore();
 const categories = ref([]);
@@ -163,4 +165,5 @@ onMounted(() => {
     </div>
   </div>
   <Gallery :title="selectedCategory" :games="games" />
+  <Footer/>
 </template>

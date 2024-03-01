@@ -59,6 +59,7 @@
             </div>
         </section>
     </div>
+    <Footer/>
 </template>
 
 
@@ -66,7 +67,7 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router'; // Import useRouter from Vue Router
-
+import Footer from '../components/Footer.vue';
 
 const nombre = ref('');
 const apellido = ref('');

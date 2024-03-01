@@ -126,10 +126,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col mt-10 ml-10">
-    <h1 class="text-gray-200 text-4xl font-barlow">
+  <div class="flex flex-col mt-5 md:mt-10 md:ml-10 mx-10">
+    <h1 class="flex flex-row text-gray-200 text-2xl md:text-4xl font-barlow gap-2">
       {{ title }}
-      <font-awesome-icon icon="chevron-right" />
+      <font-awesome-icon icon="chevron-right" class="hidden md:flex" />
     </h1>
 
     <!-- const juego = reactive({
@@ -141,7 +141,7 @@ onMounted(() => {
     descripcion: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit beatae quae eius esse deserunt distinctio nulla. Modi reiciendis eius optio necessitatibus culpa voluptatibus magnam enim odio alias, quam doloribus ab?',
 }) -->
 
-    <div v-if="games === undefined" class="grid grid-cols-3 gap-7 mr-10 mt-10">
+    <div v-if="games === undefined" class="grid grid-cols-1 mt-5 gap-2 md:grid-cols-3 md:gap-7 md:mr-10 md:mt-10">
       <div
         v-for="(juego, index) in juegos"
         :key="juego.id"
@@ -176,12 +176,13 @@ onMounted(() => {
             'opacity-100': isHovered[index] === 1,
           }"
         >
-          <h1 class="text-white">{{ juego.producto }}</h1>
-          <h2 class="text-white">{{ juego.precio_unitario }}€</h2>
+          <h1 class="text-white text-xs md:text-sm">{{ juego.producto }}</h1>
+          <h2 class="text-white text-xs md:text-sm">{{ juego.precio_unitario }}€</h2>
         </div>
       </div>
     </div>
-    <div v-else class="grid grid-cols-3 gap-7 mr-10 mt-10">
+    <!--Si no funciona el de arriba colocar este-->
+    <div v-else class="grid grid-cols-1 mt-5 gap-2 md:grid-cols-3 md:gap-7 md:mr-10 md:mt-10">
       <div
         v-for="(juego, index) in games"
         :key="juego.id"
@@ -215,8 +216,8 @@ onMounted(() => {
             'opacity-100': isHovered[index] === 1,
           }"
         >
-          <h1 class="text-white">{{ juego.producto }}</h1>
-          <h2 class="text-white">{{ juego.precio_unitario }}€</h2>
+          <h2 class="text-white text-xs md:text-sm">{{ juego.producto }}</h2>
+          <h3 class="text-white text-xs md:text-sm">{{ juego.precio_unitario }}€</h3>
         </div>
       </div>
     </div>
