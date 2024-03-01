@@ -51,6 +51,14 @@ const routes = [
     },
   },
   {
+    path: "/contact-us",
+    component: () => import("@views/ContactView.vue"),
+    meta: {
+      requiresAuth: true,
+      isAdmin: false,
+    },
+  },
+  {
     path: "/juegoDetalle",
     name: "juegoDetalle",
     component: () => import("@views/JuegoDetalleView.vue"),

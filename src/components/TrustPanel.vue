@@ -22,7 +22,7 @@
     </div>
     <div class="flex flex-row justify-center p-10 w-1/3 text-center">
       <font-awesome-icon icon="comment-dots" class="text-5xl" />
-      <div class="flex flex-col ml-5">+
+      <div class="flex flex-col ml-5">
         <h1 class="font-bold text-start">Bezeroarentzako arreta</h1>
         <small class="text-start">Agente erabilgarria 24/7</small>
       </div>

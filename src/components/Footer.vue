@@ -18,22 +18,22 @@
           class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-300 sm:mb-0 dark:text-gray-400"
         >
           <li>
-            <a href="#tendencias" class="hover:underline me-4 md:me-6"
+            <a href="/#tendencias" class="hover:underline me-4 md:me-6"
               >Joerak</a
             >
           </li>
           <li>
-            <a href="#reservas" class="hover:underline me-4 md:me-6"
+            <a href="/#reservas" class="hover:underline me-4 md:me-6"
               >Erreserbak</a
             >
           </li>
           <li>
-            <a href="#bestSellers" class="hover:underline me-4 md:me-6"
+            <a href="/#bestSellers" class="hover:underline me-4 md:me-6"
               >Salduagoak</a
             >
           </li>
           <li>
-            <a href="#" class="hover:underline">Kontaktua</a>
+            <a href="/contact-us" class="hover:underline">Kontaktua</a>
           </li>
         </ul>
       </div>

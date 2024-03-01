@@ -407,7 +407,7 @@ onMounted(() => {
                   @click="handleLogout"
                   class="text-resaltar hover:underline"
                 >
-                  Sign Out
+                Saioa itxi
                 </button>
                 </div>
               </div>
