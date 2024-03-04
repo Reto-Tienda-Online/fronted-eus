@@ -1,6 +1,6 @@
 <script setup>
 import axios from "axios";
-import { reactive, onMounted } from "vue";
+import { reactive, onMounted, ref } from "vue";
 
 /*{
     "id": 23,
@@ -19,6 +19,8 @@ const bestComment = reactive({
   valoracion: 1,
 });
 
+const gameName = ref("")
+
 const getBestComment = () => {
   const path = "http://85.50.79.98:8080/highest_valoracion/18";
   axios
@@ -36,24 +38,34 @@ const getImgURL = () => {
   return `/imgs/juegos/${bestComment.id_juego}/1.png`;
 };
 
+const getGameName = () => {
+  const path = "http://85.50.79.98:8080/all_productos?id=18"
+  axios
+    .get(path)
+    .then((response) => {
+      gameName.value = response.data[0].producto
+    })
+}
+
 onMounted(() => {
   getBestComment();
+  getGameName();
 });
 </script>
 
 <template>
   <div class="text-white mt-20 flex flex-row justify-start bg-gray-800 p-10">
-    <img :src="getImgURL()" alt="" class="w-1/3 -mt-20 -mb-10 relative" />
+    <img :src="getImgURL()" alt="" class="md:w-1/3 md:-mt-20 md:-mb-10 md:relative md:block hidden" />
     <div class="flex flex-col justify-around text-center w-full">
-      <h1 class="text-5xl">
+      <h2 class="md:text-5xl text-2xl">
         {{ "⭐".repeat(bestComment.valoracion) }}
-      </h1>
-      <q class="text-xl -mt-10 font-bold italic text-pretty">
+      </h2>
+      <q class="md:text-xl md:-mt-10 mt-5 font-bold italic text-pretty">
         {{ bestComment.comentario }}
       </q>
-      <h1 class="-mt-8 text-3xl font-bold">
+      <h2 class="md:-mt-8 mt-5 text-3xl font-bold">
         {{ bestComment.titulo }}
-      </h1>
+      </h2>
     </div>
   </div>
 </template>
