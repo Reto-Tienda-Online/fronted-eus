@@ -398,17 +398,22 @@ onMounted(() => {
                   <!-- compras Button -->
                   <button
                     @click="goToCompras"
-                    class="text-resaltar hover:underline"
+                    class="text-black hover:text-resaltar hover:underline"
                   >
                     Erosketak
                   </button>
-                  <a href="/favoritos" aria-label="Favorites" class="text-resaltar hover:underline md:hidden">
+                  <a
+                    href="/favoritos"
+                    aria-label="Favorites"
+                    class="text-black mb-1 hover:text-resaltar hover:underline md:hidden"
+                  >
                     Gustokoenak
+                    <font-awesome-icon icon="heart" aria-label="heart" class="text-resaltar" />
                   </a>
                   <!-- Logout Button -->
                   <button
                     @click="handleLogout"
-                    class="text-resaltar hover:underline"
+                    class="bg-primary rounded-lg px-1 py-1 text-sm hover:bg-resaltar"
                   >
                     Saioa itxi
                   </button>

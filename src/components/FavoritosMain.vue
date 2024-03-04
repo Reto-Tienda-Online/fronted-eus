@@ -1,5 +1,5 @@
 <template>
-  <main class="flex justify-center sm:flex-col w-full">
+  <main class="flex flex-col justify-center w-auto">
     <h2 class="text-center text-white text-xl font-bold my-4">
       GOGOKOEN ZERRENDA
     </h2>
@@ -9,7 +9,7 @@
         </router-link>
       <h3 class="text-white text-lg font-bold">Ez duzu faboritorik......</h3>
     </div>
-    <div v-else class="flex flex-wrap ml-36">
+    <div v-else class="flex justify-center flex-wrap">
       <div v-for="producto in favoritos" :key="producto.id"
         class="w-[250px] flex flex-col text-white mx-4 justify-around bg-[#1f1f1f] px-2 py-2 rounded-md mb-4">
         <div class="flex flex-row">

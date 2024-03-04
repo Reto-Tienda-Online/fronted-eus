@@ -2,7 +2,7 @@
   <nav class="w-[420px] md:w-full flex justify-between align-middle">
     <div class="flex flex-col justify-start">
       <img
-        class="mt-5 ml-5 w-16 h-18 hover:cursor-pointer"
+        class="mt-2 ml-5 w-24 h-24"
         src="../img/icono-white.svg"
         alt="Logotipo"
         @click="goHome"
