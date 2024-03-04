@@ -7,7 +7,6 @@ import Gallery from "./Gallery.vue";
 import Footer from "./Footer.vue";
 import { API_URL } from "../config";
 
-
 const store = useStore();
 const categories = ref([]);
 const plataformas = ref([]);
@@ -112,9 +111,13 @@ onMounted(() => {
 
 <template>
   <Navbar />
-  <div class="flex flex-row mt-5 justify-center align-middle mx-10">
+  <div
+    class="flex flex-col md:flex-row mt-5 md:justify-center md:align-middle mx-10"
+  >
     <div class="flex flex-col mr-10 flex-1">
-      <label class="text-white" for="nombreFiltro"> Bilatu </label>
+      <label class="text-white text-left" for="nombreFiltro">
+        Bilatu <font-awesome-icon icon="search" class="mr-2"
+      /></label>
       <input
         class="text-black mt-5 rounded-md"
         placeholder="Jokoaren izena..."
@@ -125,8 +128,10 @@ onMounted(() => {
         v-model="searchInput"
       />
     </div>
-    <div class="flex flex-col flex-3">
-      <label for="categoria" class="text-white text-center"> Kategoriak </label>
+    <div class="flex mt-2 md:mt-0 flex-col flex-3">
+      <label for="categoria" class="text-white text-left md:text-center">
+        Kategoriak
+      </label>
       <select
         id="categoria"
         class="text-black mt-5 rounded-md"
@@ -143,8 +148,8 @@ onMounted(() => {
         </option>
       </select>
     </div>
-    <div class="flex flex-col ml-10 flex-3">
-      <label for="plataforma" class="text-white text-center">
+    <div class="flex flex-col mt-2 md:mt-0 md:ml-10 flex-3">
+      <label for="plataforma" class="text-white text-left md:text-center">
         Plataformak
       </label>
       <select
@@ -153,7 +158,7 @@ onMounted(() => {
         @change="filterGames"
         v-model="selectedPlataform"
       >
-        <option value="" selected>Aukeratu plataforma bat</option>
+        <option value="" selected class="">Aukeratu plataforma bat</option>
         <option
           v-for="(plataforma, index) in plataformas"
           :key="plataforma.id"
@@ -165,5 +170,5 @@ onMounted(() => {
     </div>
   </div>
   <Gallery :title="selectedCategory" :games="games" />
-  <Footer/>
+  <Footer />
 </template>
