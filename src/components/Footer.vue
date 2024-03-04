@@ -89,5 +89,13 @@ export default {
         </div>
       </div>
     </div>
+    <div class="flex w-auto flex-col mt-0 justify-center">
+      <p class="text-white font-medium md:font-semibold text-center text-balance md:text-pretty text-xs md:text-sm">
+        All submitted content remains copyright its original copyright holder.
+      </p>
+      <p class="mt-2 text-white font-medium md:font-semibold text-center text-balance md:text-pretty text-xs md:text-sm">
+        DMCA Copyright Violation Images are for personal, non commercial use.
+      </p>
+    </div>
   </footer>
 </template>
