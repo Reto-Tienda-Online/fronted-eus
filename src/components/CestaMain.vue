@@ -122,17 +122,17 @@ watch(
 </script>
 
 <template>
-  <main class="flex xl:flex-row justify-center sm:flex-col w-full mt-10">
+  <main class="flex flex-col justify-center md:flex-row w-auto mt-10">
     <!--COMPRAS-->
-    <div v-if="juegosEnCarrito.length > 0" class="flex flex-col gap-5">
+    <div v-if="juegosEnCarrito.length > 0" class="w-auto flex flex-col gap-5">
       <div
         v-for="(juego, index) in juegosEnCarrito"
         :key="juego.id"
-        class="text-white w-[745px] mx-4"
+        class="flex text-white w-auto mx-4"
       >
         <!--Contenido del juego a comprar a repetir segun la cantidad de juegos en el carrito-->
         <div
-          class="flex flex-row justify-around bg-[#1f1f1f] w-full px-5 py-5 rounded-xl"
+          class="flex flex-col md:flex-row justify-around bg-[#1f1f1f] w-full px-5 py-5 rounded-xl"
         >
           <div class="cover" @click="seeGameDetails(juego['producto'])">
             <picture
@@ -140,42 +140,42 @@ watch(
                 :alt="juego['producto'].producto"
                 :src="getImageURL(juego['producto'].id)"
                 loading="lazy"
-                class="rounded-xl max-w-96 hover:cursor-pointer"
+                class="rounded-xl w-45 my-5 md:my-2 md:max-w-96 hover:cursor-pointer"
             /></picture>
           </div>
-          <div class="flex flex-col text-md max-w-32">
-            <div class="name">
-              <!--Aqui ira el icono de-->
-              <div class="platform platform-steam">
-                <div class="icon-s icon-steam"></div>
-              </div>
+          <div class="w-full mx-2 flex flex-row md:flex-col text-md">
+            <div class="name flex flex-col w-full">
+              <!--Nombre del Juego-->
               <span title="New Cycle - Europe" class="font-bold text-lg">{{
                 juego["producto"].producto
               }}</span>
+              <div class="text-sm text-gray-300">
+                {{ juego["producto"].plataforma.plataforma }}
+              </div>
+              <!--Delete icon-->
+              <div
+                class="text-sm py-6 text-gray-300 flex flex-row hover:underline cursor-pointer"
+                @click="deleteCartItem(juego.id)"
+              >
+                <div><font-awesome-icon icon="trash" /></div>
+                <div class="moveToWishlist ml-2">Erosketako orga ezabatu</div>
+              </div>
             </div>
-            <div class="text-sm text-gray-300">
-              {{ juego["producto"].plataforma.plataforma }}
-            </div>
-            <!--Delete icon-->
-            <div
-              class="text-sm py-6 text-gray-300 flex flex-row hover:underline cursor-pointer"
-              @click="deleteCartItem(juego.id)"
-            >
-              <div><font-awesome-icon icon="trash" /></div>
-              <div class="moveToWishlist ml-2">Erosketako orga ezabatu</div>
-            </div>
-            <div class="">
-              <div class="price text-2xl">
+            <!--Precio Unitario y Cantidad-->
+            <div class="text-md md:text-base">
+              <div class="price text-sm md:text-2xl">
                 {{ juego["producto"].precio_unitario }}€
               </div>
-              <label class="text-xl font-bold my-3"> Kantitatea:
-                  <select
-                    class="w-full mt-5 bg-gray-50 py-1 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    data-max="10"
-                    v-model="juego.cantidad"
-                    @change="updateCantidad(juego)"
-                  >
-                
+              <label
+                class="text-base md:text-xl font-semibold md:font-bold my-3"
+              >
+                Kantitatea:
+                <select
+                  class="w-full mt-5 bg-gray-50 py-1 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  data-max="10"
+                  v-model="juego.cantidad"
+                  @change="updateCantidad(juego)"
+                >
                   <option value="0" disabled="disabled">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -200,18 +200,15 @@ watch(
         Erosketako orga hutsik dago
       </h1>
       <picture>
-        <img 
-          src="/imgs/empty_shopcart.png"
-          class=" max-w-96"
-        />
+        <img src="/imgs/empty_shopcart.png" class="max-w-96" />
       </picture>
       <h1 class="text-xl text-white text-center">
         Ez galdu denbora, erosi orain
       </h1>
     </div>
     <!--RESUMEN DE COMPRAS-->
-    <div v-if="juegosEnCarrito.length > 0" class="flex flex-col">
-      <div class="text-white w-[395px] mx-4">
+    <div v-if="juegosEnCarrito.length > 0" class="mt-5 md:mt-0 flex flex-col">
+      <div class="text-white md:w-full mx-4">
         <div
           class="flex flex-col justify-center w-full bg-[#1f1f1f] px-5 py-5 rounded-xl"
         >
@@ -225,7 +222,7 @@ watch(
             @click="payForAll"
             class="bg-resaltar flex justify-center rounded-lg px-2 py-4 my-5 font-bold"
           >
-          Ordainketa egin
+            Ordainketa egin
           </button>
           <div class="flex flex-row items-center justify-center">
             <span class="h-[0.5px] w-full bg-gray-300"></span>
