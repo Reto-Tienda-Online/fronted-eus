@@ -88,8 +88,8 @@ const filterByNameBackspace = () => {
   axios
     .get(path)
     .then((response) => {
-      games.value = response.data;
       filterGames();
+      games.value = response.data;
     })
     .catch((error) => {
       console.error(error);

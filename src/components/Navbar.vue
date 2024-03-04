@@ -189,7 +189,7 @@ onMounted(() => {
         />
       </div>
       <ul
-        class="mt-5 flex flex-row justify-center align-middle space-x-5 text-gray-200 font-bold font-barlow"
+        class="md:mt-5 md:flex md:flex-row md:justify-center md:align-middle md:space-x-5 text-gray-200 font-bold font-barlow hidden"
       >
         <!--Añadir button a cada font para sacar dialogo de las pc que contiene -->
         <li class="font-barlow hover:text-gray-200 cursor-pointer">
@@ -366,7 +366,7 @@ onMounted(() => {
           /></router-link>
         </li>
         <!--Lista de Fovoritos del Usuario-->
-        <li>
+        <li class="md:block hidden">
           <a href="/favoritos" aria-label="Favorites">
             <font-awesome-icon
               icon="heart"
@@ -390,25 +390,28 @@ onMounted(() => {
                 v-if="showUserCard"
                 class="absolute top-11 right-4 z-10 mt-2 bg-white rounded-lg shadow-md p-2 text-center"
               >
-              <div class="w-full h-full flex flex-col">
-              <!-- User Name -->
-                <p class="font-bold font-barlow text-gray-800 mb-0">
-                  {{ usuario.nombre }}
-                </p>
-                <!-- compras Button -->
-                <button
-                  @click="goToCompras"
-                  class="text-resaltar hover:underline"
-                >
-                  Erosketak
-                </button>
-                <!-- Logout Button -->
-                <button
-                  @click="handleLogout"
-                  class="text-resaltar hover:underline"
-                >
-                Saioa itxi
-                </button>
+                <div class="w-full h-full flex flex-col">
+                  <!-- User Name -->
+                  <p class="font-bold font-barlow text-gray-800 mb-0">
+                    {{ usuario.nombre }}
+                  </p>
+                  <!-- compras Button -->
+                  <button
+                    @click="goToCompras"
+                    class="text-resaltar hover:underline"
+                  >
+                    Erosketak
+                  </button>
+                  <a href="/favoritos" aria-label="Favorites" class="text-resaltar hover:underline md:hidden">
+                    Gustokoenak
+                  </a>
+                  <!-- Logout Button -->
+                  <button
+                    @click="handleLogout"
+                    class="text-resaltar hover:underline"
+                  >
+                    Saioa itxi
+                  </button>
                 </div>
               </div>
             </div>
