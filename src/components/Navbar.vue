@@ -359,7 +359,10 @@ onMounted(() => {
       <ul class="flex flex-row text-gray-200 mt-5 mr-5 space-x-7">
         <!--Agregar respectivos buttons para inicio de sesion y carro de compras-->
         <li>
-          <router-link to="/cesta" aria-label="Shopping Cart"
+          <router-link
+            to="/cesta"
+            aria-label="Shopping Cart"
+            class="md:block hidden"
             ><font-awesome-icon
               icon="shopping-cart"
               class="text-2xl hover:text-resaltar cursor-pointer transition-all duration-500 ease-in-out"
@@ -373,6 +376,16 @@ onMounted(() => {
               aria-label="Favorites"
               class="text-2xl hover:text-resaltar cursor-pointer transition-all duration-500 ease-in-out"
           /></a>
+        </li>
+        <li>
+          <router-link
+            to="/categoriaDetalle"
+            aria-label="Shopping Cart"
+            class=""
+            ><font-awesome-icon
+              icon="search"
+              class="text-2xl hover:text-resaltar cursor-pointer transition-all duration-500 ease-in-out"
+          /></router-link>
         </li>
         <!-- Usuario-->
         <li class="font-barlow hover:text-gray-200 cursor-pointer">
@@ -398,18 +411,38 @@ onMounted(() => {
                   <!-- compras Button -->
                   <button
                     @click="goToCompras"
-                    class="text-black hover:text-resaltar hover:underline"
+                    class="text-black mb-1 flex flex-row justify-between hover:text-resaltar hover:underline"
                   >
                     Erosketak
+                    <font-awesome-icon
+                      icon="list"
+                      aria-label="Favorites"
+                      class="text-xl md:ml-5 hover:text-resaltar cursor-pointer transition-all duration-500 ease-in-out"
+                    />
                   </button>
                   <a
                     href="/favoritos"
                     aria-label="Favorites"
-                    class="text-black mb-1 hover:text-resaltar hover:underline md:hidden"
+                    class="text-black mb-1 flex flex-row justify-between hover:text-resaltar hover:underline md:hidden"
                   >
                     Gustokoenak
-                    <font-awesome-icon icon="heart" aria-label="heart" class="text-resaltar" />
+                    <font-awesome-icon
+                      icon="heart"
+                      aria-label="Favorites"
+                      class="text-xl hover:text-resaltar cursor-pointer transition-all duration-500 ease-in-out"
+                    />
                   </a>
+                  <router-link
+                    to="/cesta"
+                    aria-label="Shopping Cart"
+                    class="text-black mb-1 hover:text-resaltar hover:underline md:hidden"
+                  >
+                    Erosketako orga
+                    <font-awesome-icon
+                      icon="shopping-cart"
+                      class="text-xl hover:text-resaltar cursor-pointer transition-all duration-500 ease-in-out"
+                    />
+                  </router-link>
                   <!-- Logout Button -->
                   <button
                     @click="handleLogout"

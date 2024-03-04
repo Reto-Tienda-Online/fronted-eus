@@ -58,7 +58,7 @@ library.add(
   faCircleLeft,
   faHeart,
   faHeartCrack,
-  faPerson
+  faPerson,
 );
 
 const app = createApp(App);

@@ -435,7 +435,7 @@ onMounted(() => {
               placeholder="Erreseina izenburua..."
               v-model="comment.resena"
             />
-            <div class="flex flex-row justify-between items-center align-middle">
+            <div class="flex flex-row ml-5 items-center align-middle">
               <font-awesome-icon icon="star" class="h-10 text-yellow-300"/>
               <input
                 required
