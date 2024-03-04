@@ -17,6 +17,7 @@ const comment = reactive({
   id_juego: null,
   valoracion: 5,
 });
+
 const listaComentarios = ref([]);
 const productsPerPage = ref(3);
 const init = ref(0);
@@ -227,16 +228,35 @@ const getComentarios = () => {
 };
 
 const prevPage = () => {
-  init.value -= 3;
-  end.value -= 3;
-  currentPage.value--;
+  if(window.innerWidth <= 450){
+    init.value -= 1;
+    end.value -= 1;
+    currentPage.value--;
+  }else if((window.innerWidth > 450) && (window.innerWidth <= 700)){
+    init.value -= 2;
+    end.value -= 2;
+    currentPage.value--;
+  }else{
+    init.value -= 3;
+    end.value -= 3;
+    currentPage.value--;
+  }
 };
 
 const nextPage = () => {
-  init.value += 3;
-  end.value += 3;
-  currentPage.value++;
-  console.log(currentPage.value);
+  if(window.innerWidth <= 450){
+    init.value += 1;
+    end.value += 1;
+    currentPage.value++;
+  }else if((window.innerWidth > 450) && (window.innerWidth <= 700)){
+    init.value += 2;
+    end.value += 2;
+    currentPage.value++;
+  }else{
+    init.value += 3;
+    end.value += 3;
+    currentPage.value++;
+  }
 };
 
 // Show button for user loggin and user no loggin
@@ -279,6 +299,14 @@ onMounted(() => {
   }else{
     showButtonHeart = true;
   }
+
+  if(window.innerWidth <= 450){
+    end.value = 1
+    productsPerPage.value = 1
+  }else if((window.innerWidth > 450) && (window.innerWidth <= 700)){
+    end.value = 2;
+    productsPerPage.value = 2
+  }
 });
 
 //RUTA IMAGEN ../assets/jokin/{id}/1.webp
@@ -296,7 +324,7 @@ onMounted(() => {
 
 <template>
   <Navbar />
-  <div class="mx-20">
+  <div class="md:mx-20 mx-9">
     <div>
       <div>
         <!--Seccion de foto del juego-->
@@ -306,9 +334,9 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="grid grid-cols-9 gap-4 mb-1">
+    <div class="md:grid md:grid-cols-9 md:gap-4 mb-1 flex flex-col">
       <!--Debajo ACERCA DEL JUEGO-->
-      <div class="col-span-6">
+      <div class="md:col-span-6 mb-5">
         <!--Imagen-->
         <picture>
           <img
@@ -323,8 +351,8 @@ onMounted(() => {
         class="col-span-3 flex flex-col justify-between bg-background rounded-xl"
       >
         <div class="flex flex-col p-2">
-          <h1 class="text-white mt-5 text-4xl text-center">Jokoari buruz</h1>
-          <p class="text-white mt-5 mb-5 text-center">
+          <h1 class="text-white md:mt-5 text-4xl text-center hidden md:block">Jokoari buruz</h1>
+          <p class="text-white md:mt-5 mb-5 text-center hidden md:block">
             {{
               showAllDesc === true ? juegoPasado.descripcion : splitDescripcion
             }}
@@ -333,14 +361,14 @@ onMounted(() => {
           <p
             v-show="showMore"
             @click="showMoreText"
-            class="text-white hover:underline cursor-pointer text-center"
+            class="text-white hover:underline cursor-pointer text-center hidden md:block"
           >
             Irakurri gehiago...
           </p>
         </div>
-        <div class="bg-background p-2 mt-2 rounded-xl">
+        <div class="bg-background p-2 md:mt-2 rounded-xl">
           <!--NOMBRE-->
-          <h1 class="text-white text-center text-4xl mt-5">
+          <h1 class="text-white text-center text-4xl md:mt-5">
             {{ juegoPasado.producto }}
           </h1>
           <!--PLATAFORMA-->
@@ -398,7 +426,7 @@ onMounted(() => {
       <!--REVIEWS que se pueda comentar-->
       <div class="mt-5 bg-background rounded-xl mb-2">
         <!--Colocar aqui el metodo al enviarse el comentario-->
-        <form @submit="sendComment">
+        <form @submit="sendComment" class="p-2">
           <div class="flex flex-row">
             <input
               required
@@ -432,18 +460,18 @@ onMounted(() => {
           </div>
           <button 
             aria-label="Enviar comentario"
-            class="-mt-5 px-4 py-1 m-10 rounded-xl text-white bg-resaltar ">
+            class="text-white font-black bg-resaltar p-2 mt-1 w-full md:w-1/4 md:m-4 rounded-lg">
               Komentatu
             </button>
         </form>
       </div>
     </div>
   </div>
-  <div v-show="listaComentarios.length > 0" class="flex flex-col mt-10 mx-20">
+  <div v-show="listaComentarios.length > 0" class="flex flex-col mt-10 md:mx-20 mx-9">
     <!--PAGINATION-->
     <div class="flex flex-row justify-center gap-5">
       <h1 v-show="init !== 0" 
-      class="text-white flex items-center justify-center uppercase font-bold">Aurrekoa</h1>
+      class="text-white md:flex items-center justify-center uppercase font-bold hidden">Aurrekoa</h1>
       <button
         aria-label="Anterior"
         v-show="init !== 0"
@@ -467,16 +495,16 @@ onMounted(() => {
         v-show="
           currentPage < Math.ceil(listaComentarios.length / productsPerPage)
         "
-        class="text-white flex items-center justify-center uppercase font-bold"
+        class="text-white md:flex items-center justify-center uppercase font-bold hidden"
       >
         Hurrengoa
       </h1>
     </div>
-    <h1 class="text-gray-200 text-4xl font-barlow">
+    <h1 class="text-gray-200 md:text-4xl text-2xl mt-5 font-barlow">
       Komentarioak
       <font-awesome-icon icon="chevron-right" />
     </h1>
-    <div class="grid grid-cols-3 gap-10">
+    <div class="md:grid md:grid-cols-3 flex flex-row flex-nowrap gap-10">
       <Comentario
         v-for="(comment, index) in listaComentarios.slice(init, end)"
         :key="index"
