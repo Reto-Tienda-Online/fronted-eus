@@ -129,24 +129,25 @@ watchEffect(() => {
   </div>
 
   <!--ESTA PARTE DEL CODIGO HASTA DONDE ESTA MARCADO NO SE IMPLEMENTA-->
-  <main class="text-white md:w-full md:h-full flex justify-center">
-    <form class="flex flex-col w-[745px]">
-      <h2 class="text-xl font-bold my-3">Fakturazio-helbidea</h2>
-      <div class="flex flex-row justify-between w-full">
+  <main class="text-white flex flex-col md:flex-row justify-center w-auto h-auto">
+
+    <form class="flex flex-col w-auto justify-center mx-4">
+      <h2 class="md:text-xl text-base font-medium md:font-bold my-3">Fakturazio-helbidea</h2>
+      <div class="flex flex-col md:flex-row md:items-center justify-center md:justify-between w-auto">
         <input
-          class="bg-[#272727] rounded-md w-full border-2 py-3 px-2 border-gray-400"
+          class="bg-[#272727] rounded-md w-1/2 h-auto md:w-auto my-2 flex border-2 py-3 px-2 border-gray-400"
           type="text"
           placeholder="Izena"
         />
         <input
-          class="bg-[#272727] rounded-md w-full border-2 ml-4 py-3 px-2 border-gray-400"
+          class="bg-[#272727] rounded-md w-2/3 h-auto  md:w-auto flex border-2 md:ml-4 py-3 px-2 border-gray-400"
           type="text"
           placeholder="Fakturazio Helbidea"
         />
       </div>
-      <label class="text-xl font-bold my-3"> Herrialdea:
+      <label class="md:text-xl text-base font-medium md:font-bold my-3"> Herrialdea:
         <select
-          class="bg-[#272727] rounded-md border-2 my-5 py-3 px-2 border-gray-400 w-full"
+          class="bg-[#272727] rounded-md border-2 my-5 py-3 px-2 border-gray-400 w-auto"
         >
           <option>Singapore</option>
           <option>Luxembourg</option>
@@ -158,10 +159,10 @@ watchEffect(() => {
           <option>UAE</option>
         </select>
       </label>
-      <h2 class="text-xl font-bold my-3 focus">Ordainketa-metodoak</h2>
-      <div id="payment-method-93" class="rounded-md bg-[#272727] py-7 px-5">
+      <h2 class="text-base md:text-xl font-medium md:font-bold my-3 focus">Ordainketa-metodoak</h2>
+      <div id="payment-method-93" class="rounded-md bg-[#272727] md:py-7 md:px-5 py-4 px-0 flex justify-center w-[fit-content] md:w-auto">
         <div
-          class="flex flex-row hover:border-resaltar active:border-resaltar focus:border-resaltar"
+          class="flex text-sm md:text-base flex-row w-auto hover:border-resaltar active:border-resaltar focus:border-resaltar"
         >
           <input
             type="radio"
@@ -170,13 +171,13 @@ watchEffect(() => {
             class="hidden"
           />
           <img
-            class="rounded-lg w-22 h-20"
+            class="rounded-lg w-12 h-10 md:w-24 md:h-20  px-2 md:px-0"
             src="https://brandemia.org/sites/default/files/sites/default/files/logo_paypal_principal.jpg"
             alt="Imagen de PayPal"
           />
           <div class="flex flex-col mx-5">
-            <span class="font-bold"
-              >Paypal<span class="text-gray-500">(+0.20€)</span></span
+            <span class="md:font-bold font-semibold"
+              >Paypal<span class="text-gray-100">(+0.20€)</span></span
             >
             <div class="paypal-agreement-container">
               <label class="checkbox"
@@ -188,20 +189,9 @@ watchEffect(() => {
           </div>
         </div>
       </div>
-      <!-- <div class="" style="">
-              <div class="paypal" style="display: none">
-                <div class="">
-                  <label
-                    class=""
-                    ><input type="radio" name="mp_ba" value="" />
-                    <i class="icon-add icon-xxxs"></i> Usar una nueva cuenta
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div></label -->
     </form>
-    <div class="w-[396px] mx-14">
+    
+    <div class="w-[fit-content] flex flex-col mx-6 md:mx-14">
       <input id="pluginsdata" type="hidden" name="pluginsdata" value="" />
       <input type="hidden" name="process" value="pay" />
       <input
@@ -212,10 +202,10 @@ watchEffect(() => {
       <!--HASTA AQUI NO SE IMPLEMENTA NADA A PARTIR DE AHORA SI -->
 
       <input type="hidden" name="ioBB" id="ioBB" />
-      <h2 class="text-xl font-bold my-3">Laburpena</h2>
-      <div class="">
-        <div class="bg-[#272727] py-8 px-7 rounded-lg">
-          <div class="games">
+      <h2 class="text-xl font-medium md:font-bold my-3">Laburpena</h2>
+      <div class="flex flex-col ">
+        <div class="bg-[#272727] py-4 px-3 md:py-8 md:px-7 rounded-lg">
+          <div class="w-auto flex flex-col ">
             <div
               v-for="(juego, index) in listaJuegos"
               :key="juego['producto'].id"
@@ -225,7 +215,7 @@ watchEffect(() => {
                 <span class="name"
                   ><span
                     :title="juego['producto'].producto"
-                    class="font-bold text-lg"
+                    class="font-medium md:font-bold text-md md:text-lg"
                     >{{ juego["producto"].producto }}
                     <span class="text-resaltar" v-show="juego.cantidad > 1"
                       >({{ juego.cantidad }})
@@ -237,7 +227,7 @@ watchEffect(() => {
                 </span>
                 <br />
               </div>
-              <span class="text-[#aeaeae]"
+              <span class="text-gray-100"
                 >{{ juego["producto"].precio_unitario }}€</span
               >
             </div>
@@ -253,15 +243,15 @@ watchEffect(() => {
         <div class="bg-[#272727] py-8 px-8 my-7 rounded-lg">
           <div class="flex justify-between">
             <span>Transakzio-kostuak</span>
-            <span class="text-[#aeaeae]">0.20€</span>
+            <span class="text-gray-100">0.20€</span>
           </div>
           <div id="ig-vat" data-rate="21.00" class="flex justify-between my-2">
             <span>IVA (<span>21.00</span>%) :</span>
-            <span class="text-[#aeaeae]"
+            <span class="text-gray-100"
               ><span>{{ cantidadIVA.toFixed(2) }}€</span></span
             >
           </div>
-          <div class="flex justify-between font-bold text-xl my-4">
+          <div class="flex justify-between font-medium md:font-bold text-base md:text-xl my-4">
             <span class="texttotal">Guztira</span>
             <span class="subtotal">{{ precioConIVA.toFixed(2) }}€</span>
           </div>
@@ -273,7 +263,7 @@ watchEffect(() => {
           </div>
         </div>
       </div>
-      <label class="text-xs text-gray-200 text-pretty"
+      <label class="text-xstext-gray-100 text-pretty"
         > "Ordaindu" sakatuz gero, <a class="underline" href="/es/terminos-y-condiciones/" target="_blank"
           >términos y condiciones</a
         > onartu ditudala aitortzen dut>.</label
