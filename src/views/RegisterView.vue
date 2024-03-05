@@ -38,7 +38,7 @@
                                 Pasahitzak ez dira berdinak
                             </div>
                             <button type="submit" class="w-full text-white bg-primary hover:bg-resaltar focus:ring-4 focus:outline-none focus:ring-resaltar-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-resaltar-600 dark:hover:bg-resaltar-700 dark:focus:ring-resaltar-800" :disabled="contrasena_confirm !== contrasena">Erregistratu</button>
-                            <p class="text-sm font-light text-gray-500 dark:text-gray-400">Baduzu kontu bat? <RouterLink to="/login" class="font-medium text-resaltar-600 hover:underline dark:text-resaltar-500">Hasi Saioa</RouterLink></p>
+                            <p class="text-sm font-light text-gray-500 dark:text-gray-400">Baduzu kontu bat? <RouterLink to="/login" class="font-medium text-resaltar-600 hover:underline dark:text-resaltar-500">Saioa Hasi</RouterLink></p>
                         </form>
                         <div v-if="successMessage" class="flex items-center p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
                             <!-- Contenido de la alerta de éxito -->
