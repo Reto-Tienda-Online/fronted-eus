@@ -19,6 +19,9 @@ export default {
       },
       fontSize: {
         xxs: ["2px"]
+      },
+      backgroundImage: {
+        'bestGame': "url('/imgs/juegos/18/3.webp')",
       }
     },
   },

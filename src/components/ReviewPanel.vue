@@ -54,12 +54,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="text-white mt-20 flex flex-row justify-start bg-gray-800 p-10">
+  <div class="text-white mt-20 flex flex-row justify-start bg-gray-800 bg-cover p-10">
     <img :src="getImgURL()" alt="" class="md:w-1/3 md:-mt-20 md:-mb-10 md:relative md:block hidden" />
     <div class="flex flex-col justify-around text-center w-full">
+      <h2 class="text-2xl mb-5 md:hidden">
+        {{ gameName }}
+      </h2>
       <h2 class="md:text-5xl text-2xl">
         {{ "⭐".repeat(bestComment.valoracion) }}
-      </h2>
+      </h2> 
       <q class="md:text-xl md:-mt-10 mt-5 font-bold italic text-pretty">
         {{ bestComment.comentario }}
       </q>
