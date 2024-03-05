@@ -22,7 +22,7 @@ const bestComment = reactive({
 const gameName = ref("")
 
 const getBestComment = () => {
-  const path = "http://85.50.79.98:8080/highest_valoracion/18";
+  const path = "https://api.donostipub.eus/highest_valoracion/18";
   axios
     .get(path)
     .then((response) => {
@@ -39,7 +39,7 @@ const getImgURL = () => {
 };
 
 const getGameName = () => {
-  const path = "http://85.50.79.98:8080/all_productos?id=18"
+  const path = "https://api.donostipub.eus/all_productos?id=18"
   axios
     .get(path)
     .then((response) => {

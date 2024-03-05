@@ -25,7 +25,7 @@ const stripeResponse = () => {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: "http://85.50.79.98:8080/process-payment/",
+    url: "https://api.donostipub.eus/process-payment/",
     headers: {
       "Content-Type": "application/json",
     },
@@ -54,7 +54,7 @@ const payForAll = () => {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: `http://85.50.79.98:8080/process_transaction/${id_user}`,
+    url: `https://api.donostipub.eus/process_transaction/${id_user}`,
     headers: {
       "Content-Type": "application/json",
     },
@@ -99,7 +99,7 @@ const calcularIVA = () => {
 
 onMounted(() => {
   const idUser = JSON.parse(localStorage.getItem("usuario")).id;
-  const path = `http://85.50.79.98:8080/carrocompra?id_usuario=${idUser}`;
+  const path = `https://api.donostipub.eus/carrocompra?id_usuario=${idUser}`;
   axios
     .get(path)
     .then((response) => {

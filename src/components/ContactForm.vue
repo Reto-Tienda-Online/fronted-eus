@@ -18,7 +18,7 @@ const sendEmail = async () => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://85.50.79.98:8080/contacto',
+      url: 'https://api.donostipub.eus/contacto',
       headers: {
         'Content-Type': 'application/json',
       },
