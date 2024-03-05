@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, onUpdated } from "vue";
 import axios from "axios";
 import { useStore } from "vuex";
 import Navbar from "./Navbar.vue";
@@ -83,8 +83,7 @@ const filterByName = () => {
 };
 
 const filterByNameBackspace = () => {
-  const path = `https://api.donostipub.eus
-  /search?producto=${searchInput.value}`;
+  const path = `https://api.donostipub.eus/search?producto=${searchInput.value}`;
   axios
     .get(path)
     .then((response) => {
@@ -108,6 +107,7 @@ onMounted(() => {
   getPlataformas();
   filterGames();
 });
+
 </script>
 
 <template>
@@ -128,6 +128,7 @@ onMounted(() => {
         @search="filterGames"
         v-model="searchInput"
       />
+      <h2 v-show="searchInput !== '' ? true : false" class="text-white mt-5 ">Emaitzak: <q>{{ searchInput }}</q></h2>
     </div>
     <div class="flex mt-2 md:mt-0 flex-col flex-3">
       <label for="categoria" class="text-white text-left md:text-center">
@@ -170,6 +171,7 @@ onMounted(() => {
       </select>
     </div>
   </div>
+  
   <Gallery :title="selectedCategory" :games="games" />
   <Footer />
 </template>

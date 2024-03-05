@@ -1,6 +1,6 @@
 <script setup>
 import axios from "axios";
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, onUpdated } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { API_URL } from "../config";
@@ -27,12 +27,14 @@ const video = ref([]);
 const juegos = ref([]);
 const router = useRouter();
 const store = useStore();
+const shouldReload = ref(false)
 
 //METHODS
 const playVideo = (id) => {
   // console.log("video.value:", video.value);
   const playVideo = video.value[id].play();
   isHovered.value[id] = 0;
+  console.log(isHovered.value)
   // console.log(isHovered.value)
   if (playVideo !== undefined) {
     playVideo.then((_) => {}).catch((error) => {});
@@ -42,7 +44,6 @@ const playVideo = (id) => {
 const stopVideo = (id) => {
   const pauseVideo = video.value[id].pause();
   isHovered.value[id] = 1;
-
   if (pauseVideo !== undefined) {
     pauseVideo.then((_) => {}).catch((error) => {});
   }
@@ -60,8 +61,10 @@ const handleJuegosResponse = (data) => {
   }
 
   for (const i of data) {
+    console.log("HOLA")
     isHovered.value.push(1);
   }
+
 };
 const getJuegosNoUser = () => {
   const path = API_URL.concat("/all_productos");
@@ -123,9 +126,14 @@ const sendGameDetails = (juego) => {
 //HOOKS
 onMounted(() => {
   getJuegos();
-
   // console.log(video.value)
 });
+
+/*
+  1) Cada vez que se actualize debo colocar 
+*/
+
+
 </script>
 
 <template>
