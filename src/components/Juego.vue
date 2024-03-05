@@ -40,7 +40,7 @@ const sendComment = () => {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: "http://85.50.79.98:8080/resenas/",
+    url: "https://api.donostipub.eus/resenas/",
     headers: {
       "Content-Type": "application/json",
     },
@@ -106,7 +106,7 @@ const sendCartData = (data) => {
   const config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: "http://85.50.79.98:8080/carrocompra",
+    url: "https://api.donostipub.eus/carrocompra",
     headers: {
       "Content-Type": "application/json",
     },
@@ -215,7 +215,7 @@ const deleteFromWishList = async (producto_id) => {
 };
 
 const getComentarios = () => {
-  const path = `http://85.50.79.98:8080/resena/${juegoPasado.value.id}`;
+  const path = `https://api.donostipub.eus/resena/${juegoPasado.value.id}`;
   axios
     .get(path)
     .then((response) => {
@@ -278,7 +278,7 @@ onMounted(() => {
 
   const idUser = JSON.parse(localStorage.getItem("usuario"))?.id;
   if (idUser !== undefined) {
-    const path = `http://85.50.79.98:8080/carrocompra?id_usuario=${idUser}`;
+    const path = `https://api.donostipub.eus/carrocompra?id_usuario=${idUser}`;
     comment.id_usuario = idUser;
     axios
       .get(path)

@@ -28,7 +28,7 @@ const getCategories = () => {
 };
 
 const getPlataformas = () => {
-  const path = "http://85.50.79.98:8080/all_plataformas";
+  const path = "https://api.donostipub.eus/all_plataformas";
   axios
     .get(path)
     .then((response) => {
@@ -40,7 +40,7 @@ const getPlataformas = () => {
 };
 
 const getJuegos = (plataforma = "", categoria = "") => {
-  const path = "http://85.50.79.98:8080/all_productos";
+  const path = "https://api.donostipub.eus/all_productos";
   axios
     .get(path)
     .then((response) => {
@@ -83,7 +83,8 @@ const filterByName = () => {
 };
 
 const filterByNameBackspace = () => {
-  const path = `http://85.50.79.98:8080/search?producto=${searchInput.value}`;
+  const path = `https://api.donostipub.eus
+  /search?producto=${searchInput.value}`;
   axios
     .get(path)
     .then((response) => {

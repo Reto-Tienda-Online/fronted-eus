@@ -40,7 +40,7 @@ const deleteCartItem = (idItem) => {
   const config = {
     method: "delete",
     maxBodyLength: Infinity,
-    url: `http://85.50.79.98:8080/carrocompra/${idItem}`,
+    url: `https://api.donostipub.eus/carrocompra/${idItem}`,
     headers: {},
   };
   axios
@@ -76,7 +76,7 @@ const updateCantidad = (juego) => {
   let config = {
     method: "put",
     maxBodyLength: Infinity,
-    url: `http://85.50.79.98:8080/carrocompra/${juego.id}`,
+    url: `https://api.donostipub.eus/carrocompra/${juego.id}`,
     headers: {
       accept: "application/json",
       "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const updateCantidad = (juego) => {
 
 onMounted(() => {
   const idUser = JSON.parse(localStorage.getItem("usuario")).id;
-  const path = `http://85.50.79.98:8080/carrocompra?id_usuario=${idUser}`;
+  const path = `https://api.donostipub.eus/carrocompra?id_usuario=${idUser}`;
   axios
     .get(path)
     .then((response) => {

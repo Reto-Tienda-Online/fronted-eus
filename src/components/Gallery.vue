@@ -47,6 +47,8 @@ const stopVideo = (id) => {
     pauseVideo.then((_) => {}).catch((error) => {});
   }
 };
+
+
 // Funciton FOR TENDENCIAS, RESERVAS, MAS VENDIDOS
 const handleJuegosResponse = (data) => {
   if (props.title === "Joerak") {
@@ -121,6 +123,7 @@ const sendGameDetails = (juego) => {
 //HOOKS
 onMounted(() => {
   getJuegos();
+
   // console.log(video.value)
 });
 </script>
@@ -165,7 +168,7 @@ onMounted(() => {
           loop=""
           muted=""
           playsinline=""
-          class="w-full h-full object-cover rounded-xl"
+          class="video w-full h-full object-cover rounded-xl"
         >
           <source :src="getVideoURL(juego.id)" type="video/webm" />
         </video>
@@ -205,7 +208,7 @@ onMounted(() => {
           loop=""
           muted=""
           playsinline=""
-          class="w-full h-full object-cover rounded-xl"
+          class="video w-full h-full object-cover rounded-xl"
         >
           <source :src="getVideoURL(juego.id)" type="video/webm" />
         </video>
