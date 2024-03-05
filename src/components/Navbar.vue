@@ -448,7 +448,7 @@ onMounted(() => {
                     @click="handleLogout"
                     class="bg-primary rounded-lg px-1 py-1 text-sm hover:bg-resaltar"
                   >
-                    Saioa itxi
+                    Saioa Itxi
                   </button>
                 </div>
               </div>
