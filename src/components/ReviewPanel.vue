@@ -55,7 +55,7 @@ onMounted(() => {
 
 <template>
   <div class="text-white mt-20 flex flex-row justify-start bg-gray-800 bg-cover p-10">
-    <img :src="getImgURL()" alt="" class="md:w-1/3 md:-mt-20 md:-mb-10 md:relative md:block hidden" />
+    <img :src="getImgURL()" :alt="`Image ${gameName}`" class="md:w-1/3 md:-mt-20 md:-mb-10 md:relative md:block hidden" />
     <div class="flex flex-col justify-around text-center w-full">
       <h2 class="text-2xl mb-5 md:hidden">
         {{ gameName }}
