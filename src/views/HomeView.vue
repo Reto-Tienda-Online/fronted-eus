@@ -18,9 +18,9 @@ import CategoriaDetalle from "../components/CategoriaDetalle.vue";
 
 <template>
   <Navbar />
-  <div class="mt-10 text-center">
-    <h1 class="font-black text-4xl text-gray-200 font-barlow">
-      Online <span class="text-indigo-600">Joko </span>Denda
+  <div class="md:-ml-24 mt-10 text-center justify-center">
+    <h1 class="font-black md:text-4xl text-xl text-gray-200 font-barlow">
+      Online <span class="text-resaltar">Joko </span>Denda
     </h1>
   </div>
   <Carousel />
