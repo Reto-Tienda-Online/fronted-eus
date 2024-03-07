@@ -51,27 +51,24 @@ export default {
           </li>
         </ul>
       </div>
-      <hr
-        class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
-      />
-
-      <div class="sm:flex sm:items-center sm:justify-between">
-        <span
-          class="flex flex-row items-center text-sm text-gray-300 sm:text-center dark:text-gray-400"
+      <div class="mt-8 w-ful flex flex-col md:flex-row md: justify-between bg-slate-100 rounded-md">
+        <div
+          class="flex flex-row items-center my-3 justify-center ml-0 text-sm md:ml-7 text-black sm:text-center dark:text-gray-400"
           ><img
             :src="creativeC"
             alt="Creative Commons"
             width="35px"
             height="35px"
-            class="text-white"
+            class="text-black"
             loading="lazy"
           /><font-awesome-icon
             icon="person"
             aria-label="Creative Commons User"
-            class="text-white px-2 py-1 ml-1 rounded-full border-4 text-lg font-bold"
+            loading="lazy"
+            class="text-black px-2 py-1 ml-1 rounded-full border-4 text-lg font-bold border-black"
           />
-        </span>
-        <div class="flex flex-col justify-center items-center">
+        </div>
+        <div class="md:mr-7 flex flex-col justify-center items-center">
           <img
             :src="eus"
             alt="Puntueus-logoa"
