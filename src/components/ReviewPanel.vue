@@ -35,7 +35,7 @@ const getBestComment = () => {
 };
 
 const getImgURL = () => {
-  return `/imgs/juegos/${bestComment.id_juego}/1.png`;
+  return `/imgs/juegos/${bestComment.id_juego}/1.webp`;
 };
 
 const getGameName = () => {
