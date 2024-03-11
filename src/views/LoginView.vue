@@ -81,7 +81,7 @@ const handleSubmit = async () => {
         if (response.status === 200 && response.data.usuario && response.data.access_token) {
             // verificar que el usuario no es un admin
             if (!response.data.usuario.admin) {
-                console.log('submited');
+                //console.log('submited');
                 // verificar y abrir sesion, dirigir al home
                 const usuario = convertToUsuario(response.data);
 

@@ -27,7 +27,7 @@ const handleSubmit = async () => {
       response.data.access_token &&
       response.data.usuario.admin
     ) {
-      console.log("submited");
+      //console.log("submited");
       // verificar y abrir sesion, dirigir al home
       const usuario = convertToUsuario(response.data);
       successMessage.value = "Login successful!";

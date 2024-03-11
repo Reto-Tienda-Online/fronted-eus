@@ -157,11 +157,11 @@ export default {
       this.productID = product.id;
       this.productName = product.producto;
       this.popupDelete = true;
-      console.log(this.productID);
+      //console.log(this.productID);
       axios.delete(`/productos/${this.productID}`).then(response => {
         this.fetchProducts();
         this.popupDelete = false;
-        console.log('Producto eliminado correctamente');
+        //console.log('Producto eliminado correctamente');
       }).catch(error => {
         console.error('Error al eliminar el producto:', error);
       });
@@ -173,7 +173,7 @@ export default {
       axios.delete(`/delete_producto/${productID}`).then(response => {
         this.fetchProducts();
         this.popupDelete = false;
-        console.log('Producto eliminado correctamente');
+        //console.log('Producto eliminado correctamente');
       }).catch(error => {
         console.error('Error al eliminar el producto:', error);
       });

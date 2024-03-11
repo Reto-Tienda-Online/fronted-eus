@@ -31,11 +31,11 @@ const shouldReload = ref(false)
 
 //METHODS
 const playVideo = (id) => {
-  // console.log("video.value:", video.value);
+  // //console.log("video.value:", video.value);
   const playVideo = video.value[id].play();
   isHovered.value[id] = 0;
-  console.log(isHovered.value)
-  // console.log(isHovered.value)
+  //console.log(isHovered.value)
+  // //console.log(isHovered.value)
   if (playVideo !== undefined) {
     playVideo.then((_) => {}).catch((error) => {});
   }
@@ -61,7 +61,7 @@ const handleJuegosResponse = (data) => {
   }
 
   for (const i of data) {
-    console.log("HOLA")
+    //console.log("HOLA")
     isHovered.value.push(1);
   }
 
@@ -112,21 +112,21 @@ const getImageURL = (id) => {
 };
 
 const getVideoURL = (id) => {
-  // console.log(`/imgs/juegos/${id}/1.webm`)
+  // //console.log(`/imgs/juegos/${id}/1.webm`)
   return `/imgs/juegos/${id}/1.webm`;
 };
 
 const sendGameDetails = (juego) => {
   store.commit("setJuegoDetalle", juego);
   localStorage.setItem("juegoDetalle", JSON.stringify(juego));
-  // console.log(juego)
+  // //console.log(juego)
   router.push("/juegoDetalle");
 };
 
 //HOOKS
 onMounted(() => {
   getJuegos();
-  // console.log(video.value)
+  // //console.log(video.value)
 });
 
 /*

@@ -95,7 +95,7 @@ const noFav = ref(false);
 // GET IMGS FROM PUBLIC FOLDER
 const getImgURL = (id) => {
   const imgUrl = `/imgs/juegos/${id}/2.webp`;
-  // console.log(imgUrl);
+  // //console.log(imgUrl);
   return imgUrl;
 };
 
@@ -105,7 +105,7 @@ async function getFavoritos(id) {
     // Realiza la solicitud GET a la API utilizando Axios
     const response = await axios.get(`listadeseo?id_usuario=${id}`);
     favoritos.value = response.data;
-    //console.log(favoritos.value.length);
+    ////console.log(favoritos.value.length);
     if (favoritos.value.length === 0){
       noFav.value = true;
     }
@@ -124,7 +124,7 @@ async function addToShoppingCart(producto_id) {
     // CUANDO SE AÑADA AL CARRITO, SE ELIMINA DE FAVORITOS
     eliminarDeFavoritos(producto_id);
     getFavoritos(usuario.value.id);
-    console.log("Añadido al carrito");
+    //console.log("Añadido al carrito");
   } catch (error) {
     console.error(error);
   }
@@ -146,7 +146,7 @@ async function eliminarDeFavoritos(producto_id) {
 const sendGameDetails = (juego) => {
   juego.favorito = true;
   store.commit('setJuegoDetalle', juego);
-  // console.log(juego)
+  // //console.log(juego)
   router.push('/juegoDetalle');
 };
 
@@ -154,6 +154,6 @@ const sendGameDetails = (juego) => {
 onMounted(() => {
   usuario.value = JSON.parse(localStorage.getItem("usuario"));
   getFavoritos(usuario.value.id);
-  console.log(favoritos);
+  //console.log(favoritos);
 });
 </script>

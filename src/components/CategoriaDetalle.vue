@@ -23,7 +23,7 @@ const getCategories = () => {
       categories.value = response.data;
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
     });
 };
 
@@ -35,7 +35,7 @@ const getPlataformas = () => {
       plataformas.value = response.data;
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
     });
 };
 
@@ -46,12 +46,12 @@ const getJuegos = (plataforma = "", categoria = "") => {
     .then((response) => {
       games.value = response.data;
       if (plataforma !== "" && categoria === "") {
-        // console.log(plataforma)
-        // console.log("ENTRA")
+        // //console.log(plataforma)
+        // //console.log("ENTRA")
         games.value = games.value.filter((game) => {
           return game.nombreplataforma === plataforma;
         });
-        // console.log(games.value)
+        // //console.log(games.value)
       } else if (plataforma !== "" && categoria !== "") {
         games.value = games.value.filter((game) => {
           return (
@@ -66,7 +66,7 @@ const getJuegos = (plataforma = "", categoria = "") => {
       }
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
     });
 };
 

@@ -188,7 +188,7 @@ router.beforeEach((to, from, next) => {
     // If user is logged in
     else {
       // Redirect to home page if trying to access login page and not an admin
-console.log('to.path is: ', to.path);
+//console.log('to.path is: ', to.path);
       if (to.path === '/login' && !isUserAdmin) {
         return next({ path: '/home' });
       }

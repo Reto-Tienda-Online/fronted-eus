@@ -101,8 +101,8 @@ async function fetchData(productName) {
         videoPath.value = product[0].rutavideo;
         trailerIframe.value = product[0].iframetrailer;
         description.value = product[0].descripcion;
-        console.log(product);
-        console.log(videoPath);
+        //console.log(product);
+        //console.log(videoPath);
 
     } catch (error) {
         console.error('Error fetching product data:', error);
@@ -110,7 +110,7 @@ async function fetchData(productName) {
 }
 async function update_product(){
     
-    console.log(productID);
+    //console.log(productID);
 
     formData.producto = productName_v.value;
     formData.precio_unitario = unitPrice.value;

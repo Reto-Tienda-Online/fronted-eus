@@ -15,12 +15,12 @@ const getCategories = () => {
     .get(path)
     .then((response) => {
       categories.value = response.data;
-      // console.log(categories.value);
+      // //console.log(categories.value);
     })
     .catch((error) => {
       console.error(error);
     });
-    console.log(window.innerWidth)
+    //console.log(window.innerWidth)
 };
 
 const categoryPng = (categoria) => {

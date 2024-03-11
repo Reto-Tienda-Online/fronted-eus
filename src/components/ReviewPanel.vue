@@ -27,7 +27,7 @@ const getBestComment = () => {
     .get(path)
     .then((response) => {
       Object.assign(bestComment, response.data);
-      // console.log(bestComment.resena)
+      // //console.log(bestComment.resena)
     })
     .catch((error) => {
       console.error(error);

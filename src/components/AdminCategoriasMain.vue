@@ -251,7 +251,7 @@ export default {
       this.updateCategoryModal = false;
     },
     submit_update() {
-      console.log(this.formUpdateCategory);
+      //console.log(this.formUpdateCategory);
       const { id, ...allowedData } = this.formUpdateCategory;
       axios.put(`/categorias/${this.formUpdateCategory.id}`, allowedData)
         .then(response => {

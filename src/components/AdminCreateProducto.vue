@@ -104,14 +104,14 @@ export default {
         createProduct() {
             axios.post('/create_producto', this.formNewProducto)
                 .then(response => {
-                    console.log('Producto creado:', response.data);
+                    //console.log('Producto creado:', response.data);
                     // Subir el archivo de video o imagen
                     const formData = new FormData();
                     formData.append('file', this.selectedFile);
                     formData.append('id', response.data.id);
                     axios.post('/upload_video', formData)
                         .then(response => {
-                            console.log('Video subido:', response.data);
+                            //console.log('Video subido:', response.data);
                         })
                         .catch(error => {
                             console.error('Error al subir el video:', error);
@@ -119,7 +119,7 @@ export default {
                 })
                 .catch(error => {
                     console.error('Error al crear el producto:', error);
-                    console.log(this.formNewProducto);
+                    //console.log(this.formNewProducto);
                 });
         },
         async getPlatforms() {
@@ -135,7 +135,7 @@ export default {
             axios.get(`/all_descuentos`)
                 .then(response => {
                     this.descuentos = response.data;
-                    console.log(this.descuentos);
+                    //console.log(this.descuentos);
                 })
                 .catch(error => {
                     console.error('Error al obtener los descuentos:', error);

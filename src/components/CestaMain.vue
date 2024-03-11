@@ -10,7 +10,7 @@ const juegosEnCarrito = ref([]);
 const precioTotal = ref(0);
 
 const seeGameDetails = (juego) => {
-  console.log(juego);
+  //console.log(juego);
   store.commit("setJuegoDetalle", juego);
   router.push("/juegoDetalle");
 };
@@ -46,10 +46,10 @@ const deleteCartItem = (idItem) => {
   axios
     .request(config)
     .then((response) => {
-      console.log(JSON.stringify(response.data));
+      //console.log(JSON.stringify(response.data));
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
     });
 
   //DELETE FROM STORE
@@ -86,10 +86,10 @@ const updateCantidad = (juego) => {
   axios
     .request(config)
     .then((response) => {
-      console.log(JSON.stringify(response.data));
+      //console.log(JSON.stringify(response.data));
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
     });
 };
 
@@ -105,7 +105,7 @@ onMounted(() => {
       console.error(error);
     });
 
-  // console.log(juegosEnCarrito.value);
+  // //console.log(juegosEnCarrito.value);
 
   getPrecioTotal();
 });

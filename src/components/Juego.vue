@@ -49,22 +49,22 @@ const sendComment = () => {
   axios
     .request(config)
     .then((response) => {
-      console.log(JSON.stringify(response.data));
+      //console.log(JSON.stringify(response.data));
       comment.resena = "";
       comment.contenido = "";
       alert("Comentario enviado con éxito");
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
     });
-  // console.log(comment.value)
-  // console.log(juego)
+  // //console.log(comment.value)
+  // //console.log(juego)
 };
 
 //ARREGLAR METODO
 const getImgURL = (id) => {
   const imgUrl = `/imgs/juegos/${id}/2.webp`;
-  // console.log(imgUrl);
+  // //console.log(imgUrl);
   return imgUrl;
 };
 
@@ -96,13 +96,13 @@ const showMoreText = () => {
 const sendCartData = (data) => {
   const id_user = JSON.parse(localStorage.getItem("usuario")).id;
 
-  // console.log(id_user)
+  // //console.log(id_user)
   const juegoAñadir = JSON.stringify({
     id_usuario: id_user,
     id_producto: data.id,
   });
 
-  // console.log(juegoAñadir)
+  // //console.log(juegoAñadir)
   const config = {
     method: "post",
     maxBodyLength: Infinity,
@@ -115,10 +115,10 @@ const sendCartData = (data) => {
   axios
     .request(config)
     .then((response) => {
-      console.log(JSON.stringify(response.data));
+      //console.log(JSON.stringify(response.data));
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
     });
 };
 
@@ -138,7 +138,7 @@ const addItemToCart = (item) => {
 
         //HAGO UN POST A LA API
         sendCartData(item);
-        // console.log(store.state.shopCart)
+        // //console.log(store.state.shopCart)
 
         alert(`El juego ${item.producto} se ha añadido al carrito`);
 
@@ -191,8 +191,8 @@ const addToWishList = async (producto_id) => {
   };
   try {
     const response = await axios.post(`listadeseo`, data);
-    // console.log(response.data);
-    console.log("Añadido a favoritos");
+    // //console.log(response.data);
+    //console.log("Añadido a favoritos");
     //toggleFavorito();
   } catch (error) {
     console.error(error);
@@ -206,8 +206,8 @@ const deleteFromWishList = async (producto_id) => {
   };
   try {
     const response = await axios.delete(`listadeseo/${data.id_usuario}/${data.id_producto}`);
-    // console.log(response.data);
-    console.log("Quitando de favoritos");
+    // //console.log(response.data);
+    //console.log("Quitando de favoritos");
 
   } catch (error) {
     console.error(error);
@@ -220,7 +220,7 @@ const getComentarios = () => {
     .get(path)
     .then((response) => {
       listaComentarios.value = response.data;
-      console.log(listaComentarios.value);
+      //console.log(listaComentarios.value);
     })
     .catch((error) => {
       console.error(error);
@@ -267,9 +267,9 @@ function goToLogin(){
 }
 onMounted(() => {
   if (store.state.juegoDetalle) {
-    // console.log(store.state.datosCompartidos)
+    // //console.log(store.state.datosCompartidos)
     juegoPasado.value = store.state.juegoDetalle;
-    // console.log(juegoPasado.value)
+    // //console.log(juegoPasado.value)
   }
 
   if (Object.keys(juegoPasado.value).length === 0) {
@@ -284,7 +284,7 @@ onMounted(() => {
       .get(path)
       .then((response) => {
         listaCompra.value = response.data;
-        // console.log(listaCompra.value)
+        // //console.log(listaCompra.value)
       })
       .catch((error) => {
         console.error(error);

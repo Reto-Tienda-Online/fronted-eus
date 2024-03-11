@@ -34,13 +34,13 @@ const stripeResponse = () => {
   axios
     .request(config)
     .then((response) => {
-      console.log(JSON.stringify(response.data));
+      //console.log(JSON.stringify(response.data));
       if (response.data.status === "success") {
         payForAll();
       }
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
       setTimeout(() => {
         payResponse.value = null;
         router.push("/");
@@ -50,7 +50,7 @@ const stripeResponse = () => {
 
 const payForAll = () => {
   const id_user = JSON.parse(localStorage.getItem("usuario")).id;
-  console.log(id_user);
+  //console.log(id_user);
   let config = {
     method: "post",
     maxBodyLength: Infinity,
@@ -62,7 +62,7 @@ const payForAll = () => {
   axios
     .request(config)
     .then((response) => {
-      console.log(JSON.stringify(response.data));
+      //console.log(JSON.stringify(response.data));
       if (response.data.result === "Transaction processed successfully") {
         payResponse.value = true;
       }
@@ -73,7 +73,7 @@ const payForAll = () => {
       }, 3000);
     })
     .catch((error) => {
-      console.log(error);
+      //console.log(error);
       payResponse.value = false;
       setTimeout(() => {
         payResponse.value = null;
@@ -84,7 +84,7 @@ const payForAll = () => {
 
 const calcularPrecioTotal = () => {
   for (const juego of listaJuegos.value) {
-    console.log(juego.cantidad);
+    //console.log(juego.cantidad);
     precioTotal.value +=
       parseFloat(juego["producto"].precio_unitario) * juego.cantidad;
   }
@@ -94,7 +94,7 @@ const calcularPrecioTotal = () => {
 
 const calcularIVA = () => {
   precioConIVA.value = precioTotal.value * IVA;
-  // console.log(precioConIVA.value + "PI")
+  // //console.log(precioConIVA.value + "PI")
 };
 
 onMounted(() => {
@@ -104,7 +104,7 @@ onMounted(() => {
     .get(path)
     .then((response) => {
       listaJuegos.value = response.data;
-      // console.log(listaJuegos.value)
+      // //console.log(listaJuegos.value)
     })
     .catch((error) => {
       console.error(error);

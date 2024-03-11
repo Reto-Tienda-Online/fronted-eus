@@ -87,8 +87,8 @@ const handleSignup = async () => {
         'contrasena': contrasena.value
     };
 
-    console.log('created');
-    console.log(data);
+    //console.log('created');
+    //console.log(data);
 
     try {
         // const formData = new FormData();
@@ -99,7 +99,7 @@ const handleSignup = async () => {
 
         // const response = await axios.post('register', formData);
         const response = await axios.post('register', data);
-        console.log(response);
+        //console.log(response);
         // verify the response code, verify the boolean created if exists
         if (response.status === 200) {
             // mostrar alerta (registrado con exito)
