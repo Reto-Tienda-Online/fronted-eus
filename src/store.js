@@ -21,7 +21,7 @@ const store = createStore({
       state.shopCart.push(data);
     },
     deleteItem(state, data) {
-      console.log(data)
+      ////console.log(data)
       state.shopCart = state.shopCart.filter((element) => {
         return element.id !== data
       })
